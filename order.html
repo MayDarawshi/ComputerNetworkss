@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function calculate() {
+            var a = document.getElementsByName("clothing");
+            var price = 0;
+            for (let i = 0; i < a.length; i++) {
+                if (a[i].checked) {
+                    price += parseFloat(a[i].value);
+                }
+            }
+
+            const size = document.getElementsByName("size");
+            for (let i = 0; i < size.length; i++) {
+                if (size[i].checked) {
+                    price *= parseFloat(size[i].value);
+                }
+            }
+            const select = document.getElementById("colors");
+            price += parseFloat(select.value);
+            const logo = document.getElementsByName("logo");
+            for (let i = 0; i < logo.length; i++) {
+                if (logo[i].checked) {
+                    price += parseFloat(logo[i].value);
+                }
+            }
+            const qua = document.getElementById("qua").value;
+            price *= qua;
+            document.getElementById("theprice").textContent = price;
+            console.log(price);
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Madrid</title>
+</head>
+<link rel="stylesheet" type="text/css" href="index.css">
+
+
+<body>
+    <h2>Exercise 3</h2>
+    <div class="bg">
+
+        <form action="https://formspree.io/f/moqpkgzq" method="post">
+            <label>Order Number:</label><br>
+            <input type="text" value="29760734" readonly><br><br>
+            <label>FirstName:</label><br>
+            <input type="text" size="20"><br><br>
+            <label>LastName:</label><br>
+            <input type="text" size="20"> <br><br><br>
+            <label> Type Of Clothing:</label><br>
+            <div class="a">
+                <input type="radio" id="shirt" name="clothing" value="10" checked>
+                <label for="shirt">Shirt &nbsp;	&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:10 nis</label><br>
+                <input type="radio" id="Undershirt" name="clothing" value="10">
+                <label for="Undershirt">Undershirt &nbsp; :10 nis</label><br>
+                <input type="radio" id="Sweater" name="clothing" value="20">
+                <label for="Sweater">Sweater &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:20 nis</label><br>
+                <input type="radio" id="Hoodie" name="clothing" value="30">
+                <label for="Hoodie">Hoodie &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:30 nis</label><br>
+                <input type="radio" id="Coat" name="clothing" value="50">
+                <label for="Coat">Coat &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:50 nis</label><br><br>
+            </div>
+            <label for="colors"> Choose A Color </label>
+            <select id="colors" name="colors">
+              <option  value="0">Red   &nbsp;price:0</option>
+              <option  value="5">Green   price:+5</option>
+              <option value="-2">Blue  &nbsp; price:-2</option>
+              <option  value="0" selected>White  &nbsp;      price:0</option>
+            </select><br><br>
+            <label>Size:</label><br>
+            <input type="radio" id="S" name="size" value="0.9">
+            <label for="S">S  &nbsp;&nbsp; *discount 10%</label><br>
+            <input type="radio" id="M" name="size" value="1">
+            <label for="M">M  &nbsp; *no changes in price</label><br>
+            <input type="radio" id="L" name="size" value="1">
+            <label for="L">L  &nbsp; &nbsp;*no changes in price</label><br>
+            <input type="radio" id="XL" name="size" value="1.10">
+            <label for="XL">XL  *10% increasment in price</label><br><br> </select>
+            <br><label>Position Of The Group Logo:</label><br>
+            <input type="checkbox" id="backwards" name="logo" value="3">
+            <label for="backwards">Backwards &nbsp; price:3</label><br>
+            <input type="checkbox" id="forward" name="logo" value="3">
+            <label for="forward">Fordward &nbsp; price:3</label><br>
+            <input type="checkbox" id="Right sleeve" name="logo" value="3">
+            <label for="right sleeve">Right Sleeve  price:3</label><br>
+            <input type="checkbox" id="left sleeve" name="logo" value="3">
+            <label for="left sleeve">Left Sleeve &nbsp; price:3</label><br><br>
+            <br><label>Address:</label>
+            <br>
+            <textarea name="address" cols="30" rows="10"></textarea>
+            <br><br>
+            <label for="qua">Quantity</label>
+            <input type="text" id="qua" value="1" size=3> <br><br>
+
+
+
+
+
+            <input type="button" onclick="calculate()" value="Calculate"><br><br>
+            <span id="theprice"> </span><br><br>
+
+            <input type="submit" value="Send Order">
+            <input type="reset" id="reset" value="Reset">
+
+        </form>
+
+    </div>
+</body>
+
+</html>
